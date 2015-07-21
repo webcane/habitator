@@ -4,16 +4,25 @@
  */
 package unit;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.io.IOException;
 import java.sql.SQLException;
-import javax.sql.DataSource;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
+
+import ru.agilecamp.habitator.FrontController;
 import ru.agilecamp.habitator.HabitsException;
+import ru.agilecamp.habitator.HabitsService;
 import ru.agilecamp.habitator.UserService;
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -52,5 +61,27 @@ public class UserServiceTest {
         Integer userId = userService.authentication("testLogin", "testPassword");
 
         assertNotNull(userId);
+    }
+
+    @Test
+    public void shouldSuccessfullyLogin() throws ServletException, IOException, SQLException {
+        ServletAPIMockBuilder servletAPIMockBuilder = new ServletAPIMockBuilder();
+        when(servletAPIMockBuilder.getRequest().getParameter("action")).thenReturn("login");
+        when(servletAPIMockBuilder.getRequest().getParameter("name")).thenReturn("username");
+        when(servletAPIMockBuilder.getRequest().getParameter("password")).thenReturn("password");
+
+        HttpServletRequest request = servletAPIMockBuilder.getRequest();
+        HttpServletResponse response = servletAPIMockBuilder.getResponse();
+
+        UserService userService = mock(UserService.class);
+        when(userService.authentication("username", "password")).thenReturn(1);
+
+        FrontController frontController = new FrontController();
+        //frontController.setUserService(userService);
+
+        frontController.service(request, response);
+
+        verify(request.getSession()).setAttribute("username", 1);
+        verify(request.getSession()).setAttribute("isLoggedIn", true);
     }
 }
