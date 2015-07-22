@@ -1,4 +1,4 @@
-//package system;
+package system;
 //
 //import java.util.regex.Pattern;
 //import java.util.concurrent.TimeUnit;
@@ -11,7 +11,7 @@
 //import static org.hamcrest.CoreMatchers.*;
 //import static org.fest.assertions.Assertions.*;
 //
-//public class LoginTest {
+public class LoginTest {
 //	private WebDriver driver;
 //	private String baseUrl;
 //	private StringBuffer verificationErrors = new StringBuffer();
@@ -64,5 +64,5 @@
 //			return false;
 //		}
 //	}
-//}
+}
 //
