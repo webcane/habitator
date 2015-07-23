@@ -68,6 +68,7 @@
 			</plugin>
 
 			<!-- Plugin for executing sql scripts at start and end of build process -->
+<!--
  			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>sql-maven-plugin</artifactId>
@@ -89,6 +90,7 @@
 				</configuration>
 
 				<executions>
+
 					<execution>
 						<id>create-schema-before-test</id>
 						<phase>pre-integration-test</phase>
@@ -130,20 +132,23 @@
 							</srcFiles>
 						</configuration>
 					</execution>
-
 				</executions>
+			
 			</plugin>
-
+-->
 			<!-- Separating the unit tests from the integration tests. -->
 			<!-- Plugin for executing system tests. It let fail build process if tests break up -->
- 			<plugin>
+<!--
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>2.12.2</version>
 
 				<configuration>
 					<encoding>UTF-8</encoding>
+-->
  					<!-- Skip execution at predefined time. We define other time ourself. -->
+<!--
 					<skip>true</skip>
 				</configuration>
 
@@ -174,7 +179,7 @@
 					</execution>
 				</executions>
 			</plugin> 
-
+-->
 			<!-- Separating the unit tests from the integration tests. -->
 			<!-- Plugin for executing unit tests. -->
  			<plugin>
