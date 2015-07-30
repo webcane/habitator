@@ -214,7 +214,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -225,11 +225,20 @@
 			<scope>provided</scope>
 		</dependency>
 
+        <dependency>
+        	<groupId>org.apache.derby</groupId>
+        	<artifactId>derbyclient</artifactId>
+        	<version>${derby.version}</version>
+        </dependency>
+		
+		<!-- для запуска derby как сетевого ресурса
 		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derbyclient</artifactId>
-			<version>10.4.2.0</version>
-		</dependency>
+        	<groupId>org.apache.derby</groupId>
+        	<artifactId>derbynet</artifactId>
+        	<version>${derby.version}</version>
+        </dependency>
+         -->
+
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -240,7 +249,7 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
-			<version>1.9.5-rc1</version>
+			<version>1.10.19</version>
 		</dependency>
 		<dependency>
 			<groupId>org.easytesting</groupId>
@@ -257,4 +266,7 @@
 	</dependencies>
 
 	<groupId>com.acme</groupId>
+	<properties>
+		<derby.version>10.10.2.0</derby.version>
+	</properties>
 </project>

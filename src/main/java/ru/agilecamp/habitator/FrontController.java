@@ -23,6 +23,7 @@ public class FrontController extends HttpServlet {
     public static final String LOGINJSP = "login.jsp";
     public static final String REGISTRATION_FORMJSP = "registration_form.jsp";
     public static final String MY_HABITSJSP = "my_habits.jsp";
+    
     @Resource(name = "jdbc/TestDB")
     private DataSource dataSource;
     private UserService userService;

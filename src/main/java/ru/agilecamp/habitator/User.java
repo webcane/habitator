@@ -1,16 +1,20 @@
 package ru.agilecamp.habitator;
 
 /**
- * Created by Денис on 22.07.2015.
+ * Pojo класс описывающий Пользователя.
+ * 
+ * @author cane
  */
 public class User {
+	
     private Integer id;
     private String name;
     private String password;
 
-    public User(int id, String name) {
-        this.id = id;
-        this.name = name;
+    /**
+     * default constructor
+     */
+    public User() {
     }
 
     public Integer getId() {
